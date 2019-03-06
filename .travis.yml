@@ -1,0 +1,17 @@
+sudo:          false
+language:      node_js
+node_js:
+  - "node"
+install:       npm install
+script:
+  - npm run build
+cache:
+  directories:
+    - node_modules
+deploy:
+  provider: surge
+  skip_cleanup: true
+  domain: tsk.surge.sh
+  project: ./build/
+on:
+branch: master
